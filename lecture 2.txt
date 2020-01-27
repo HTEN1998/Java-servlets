@@ -1,0 +1,27 @@
+=>writing the code for servlet includes these 3 methods:-
+o	Public void init(ServerConfig sc) throws ServletExceptions
+o	Public void service(ServerRequest request, ServerResponse response) throws     ServerException ,IOException
+o	Pubic void destroy()
+=>initialization is done with ‘init ‘method rather than constructor because the environment (context) information required by servlet is to be provided by container can-t be provided.
+=>the code is said to be servlet code iff it as it has interface, here Server interface act as interface, and we make changes in above interface named ‘Servlet’ by using keyword ‘implements’
+Class GenericServlet implements Servlet
+Above class is abstract class and method inside it is also an abstract methods
+HttpServlet extends GenericServlet
+Above class is abstract class but the methods inside it is not abstract methods.
+
+Java Server Pages (JSP)
+=>This gives an html way of writing the code for servler. As it used to make servlet only.
+=>JSP contains infinite number of tags. There are 5 standard tags and rest is provided by different vendors. 
+1)	Directive tags: it consists of 3 types of tags like page tag, include tag & taglib tags.
+2)	Expression tags: You can write expression which will be evaluated at runtime & result displayed on browser in string notation.
+3)	Script let tags: You can write any valid java code which can be written in java method. Remember whatever you write goes into service method of the servlet that is made.
+4)	Decorative tags: you can declare & define variables & methods variables here become instance variable & methods in the servlet that is made.
+5)	Action tags:   Use a bean in JSP.
+      To set the property of the Bean.
+     To get the property of the Bean.
+     To forward the request.
+     To include the response.
+    For plug-in the applet.
+    To poor parameters.
+=>we use to write code in Expression tags, Scripting tags and Decorative tags. 
+

@@ -1,0 +1,42 @@
+=>Serverlet: It is a server-side component
+=>component is a building block of applications
+=>component is used as componet because it provides functionalities and interface to interact
+    (e.g. functionality of computer is to comput(process) the data, but if it don't have/provide interface(input devices) to interact how used will
+            enter data in computer and comput(process) it)
+=>providing an interface means implementing the interface(e.g. if an user is using a particular command (should know its meaning) from list of commands then devices
+     devices which has interface will just take respectaive action)
+=>When a request is recevied from client the server takes sometime to intiate serverlet(providing resource & loading serverlet into memory)
+     after that it gives received request to serverlet to process it. Then the response is send to client.
+=>serverlet loaded into memory is not unloaded immediately, if any other request comes for same serverlet the it not has to be reloaded into memory.
+=>In older server systems, if  more than one client send request for same serverlet the server creates thet many threads/instances of  serverlets.(creartes mulitple copies of serverlet)
+    This solution will work only  the code for serverlet writen by you is 'thread safe code'.
+=>Being a programmer we put our whole efforts to make thread safe code, but from some situations it becomes impossible to write thread safe code.
+=>thread safe code & thread unsafe code both are capable to handles mulitple threads of serverlet,but thread safe code gives correct output & thread unsafe code gives undesired output.
+=>So,Being a programmer you had 2 options:-
+	1.synchronize thread execcution: excute each thread of serverlet one-by-one. (start exceution of new thread excution of previous thread is over)
+	2.let the server to solve the problem(let server to decide that which client request will get acess to serverlet)
+=>If  their is a small amount of thread unsafety in code writen for serverlet then go for synchronize method, else if large amount of thread unsafety in code writen for serverlet is their 
+    then go for 2nd option.
+
+
+=>Now we have to wrtie code for serverlet, but don't care about intializing the serverlet and passing request to it,etc........    That is job of server.
+=>Their are 3 layer of servelet (1.presentation layer  2.bussiness layer  3.data layer), but java provides programmers to only make presentation layer.
+    Consider, and login page as for login id and password. Then, this both passed with request to server, but before serving the request server should undergo authentication of id
+    & passoword, for this authentication EJB is neccessary(which belongs to bussiness layer).
+=>presentation layer consists of presentation(design of webpage) and presentation logic. And we have to wrtie code for this presentation logic.
+    In above , example of login page
+    Working............................................................................
+	1.user enters login id and password into page and click "login" button.
+	2.login id & password is send along with request to server, after that id & password if passed to EJB for verification. The presentation logic is writen in such a way that
+                     if retrun value of EJB is true (means id & password is correct) then display page 1 else page 2
+
+=>all the serverlets are placed in container , their are  2 types of  servers 
+    1.web server: contain only the application container
+    2. application server: contains both application container and EJB container....................(more costly)
+=>As, the  request send by client is http language ,but the code of serverlet is in java, due this server takes http request, extract all data from it and fill it into java request object
+ and give it to  serverlets which is in java. this process is called request decoding service
+=> services by servers are:-
+      life cycle management service
+      request decoding service
+     response formating service
+     network services 
